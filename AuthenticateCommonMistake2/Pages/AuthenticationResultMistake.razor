@@ -1,0 +1,23 @@
+﻿@page "/authentication-result-mistake"
+@using System.Security.Claims
+@using AuthenticateCommonMistake2.Components
+@using AuthenticateCommonMistake2.Utilities;
+@using Microsoft.AspNetCore.Components.Authorization
+@inject BlazorSchoolAuthenticationStateProvider BlazorSchoolAuthenticationStateProvider
+
+<h3>Do not call the GetAuthenticationStateAsync from AuthenticationStateProvider to get the user's information</h3>
+<div>GetAuthenticationStateAsync called @BlazorSchoolAuthenticationStateProvider.GetAuthenticationStateAsyncRan time(s).</div>
+<button type="button" @onclick="AddNewComponent">Add New Component</button>
+@for (int i = 0; i < NumberOfComponents; i++)
+{
+    <UserDetail></UserDetail>
+}
+
+@code {
+    public int NumberOfComponents { get; set; } = 1;
+
+    public void AddNewComponent()
+    {
+        NumberOfComponents++;
+    }
+}

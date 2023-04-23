@@ -1,0 +1,11 @@
+﻿@page "/for-users-in-policy-ui-elements"
+@using Microsoft.AspNetCore.Components.Authorization
+
+<AuthorizeView Policy="EsrbPolicy" Resource="13">
+    <Authorized>
+        <div>Content for users in esrb policy with age 13+.</div>
+    </Authorized>
+    <NotAuthorized>
+        <div>Content blocked. This content is for 13+ user only.</div>
+    </NotAuthorized>
+</AuthorizeView>

@@ -1,0 +1,6 @@
+﻿@page "/logout"
+@using AuthorizeOnIndividualComponent.Utilities
+@inject BlazorSchoolAuthenticationStateProvider BlazorSchoolAuthenticationStateProvider
+
+<h3>Logout</h3>
+<button @onclick="BlazorSchoolAuthenticationStateProvider.LogoutAsync">Logout</button>

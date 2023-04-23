@@ -1,0 +1,26 @@
+﻿@using System.Security.Claims
+@using AuthenticateCommonMistake2.Utilities;
+@using Microsoft.AspNetCore.Components.Authorization
+@inject BlazorSchoolAuthenticationStateProvider BlazorSchoolAuthenticationStateProvider
+
+<AuthorizeView>
+    <Authorized>
+        <div>Username: @Username</div>
+    </Authorized>
+    <Authorizing><div>Loading...</div></Authorizing>
+    <NotAuthorized><div>Not authenticated</div></NotAuthorized>
+</AuthorizeView>
+
+@code {
+    public string Username { get; set; } = "";
+
+    protected override async Task OnInitializedAsync()
+    {
+        var authenticationState = await BlazorSchoolAuthenticationStateProvider.GetAuthenticationStateAsync();
+
+        if (authenticationState is not null)
+        {
+            Username = authenticationState.User.FindFirst(ClaimTypes.Name)?.Value ?? "";
+        }
+    }
+}

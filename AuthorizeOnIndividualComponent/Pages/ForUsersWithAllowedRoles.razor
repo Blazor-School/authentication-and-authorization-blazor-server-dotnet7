@@ -1,0 +1,20 @@
+﻿@page "/for-users-with-allowed-roles"
+@using Microsoft.AspNetCore.Components.Authorization
+
+<AuthorizeView Roles="normal_user,paid_user">
+    <Authorized>
+        <div>Content for users with either normal or paid or both roles.</div>
+    </Authorized>
+</AuthorizeView>
+
+<AuthorizeView Roles="paid_user">
+    <Authorized>
+        <div>Content for paid users.</div>
+    </Authorized>
+</AuthorizeView>
+
+<AuthorizeView Roles="admin">
+    <Authorized>
+        <div>Content for admin users.</div>
+    </Authorized>
+</AuthorizeView>

@@ -1,0 +1,20 @@
+﻿@page "/authentication-result"
+@using AuthorizeOnIndividualComponent.Utilities
+@using System.Security.Claims
+@using Microsoft.AspNetCore.Components.Authorization
+@inject BlazorSchoolAuthenticationStateProvider BlazorSchoolAuthenticationStateProvider
+
+<AuthorizeView>
+    <Authorized>
+        @if (BlazorSchoolAuthenticationStateProvider.CurrentUser is not null)
+        {
+            <div>Authenticated</div>
+            <div>User: @BlazorSchoolAuthenticationStateProvider.CurrentUser.Username</div>
+            <div>Password: @BlazorSchoolAuthenticationStateProvider.CurrentUser.Password</div>
+            <div>Age: @BlazorSchoolAuthenticationStateProvider.CurrentUser.Age</div>
+            <div>Role: @string.Join(", ", BlazorSchoolAuthenticationStateProvider.CurrentUser.Roles)</div>
+        }
+    </Authorized>
+    <Authorizing><div>Loading...</div></Authorizing>
+    <NotAuthorized><div>Not authenticated</div></NotAuthorized>
+</AuthorizeView>

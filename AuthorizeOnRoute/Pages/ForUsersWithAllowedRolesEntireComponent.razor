@@ -1,0 +1,6 @@
+﻿@page "/for-users-with-allowed-roles-entire-component"
+@using Microsoft.AspNetCore.Authorization;
+@attribute [Authorize(Roles ="admin,paid_user")]
+
+<h3>ForUsersWithAllowedRolesEntireComponent</h3>
+<div>This page is for admin or paid users only.</div>

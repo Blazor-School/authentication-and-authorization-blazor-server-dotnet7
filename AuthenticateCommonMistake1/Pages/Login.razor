@@ -1,0 +1,10 @@
+﻿@page "/login"
+@using AuthenticateCommonMistake1.Utilities;
+@using Microsoft.AspNetCore.Authorization;
+@inject BlazorSchoolAuthenticationStateProvider BlazorSchoolAuthenticationStateProvider
+@attribute [AllowAnonymous]
+
+<h3>Login</h3>
+<button @onclick='_ => BlazorSchoolAuthenticationStateProvider.LoginAsync("blazorschool-admin", "blazorschool")'>Login as Admin</button>
+<button @onclick='_ => BlazorSchoolAuthenticationStateProvider.LoginAsync("blazorschool-normal", "blazorschool")'>Login as Normal User</button>
+<button @onclick='_ => BlazorSchoolAuthenticationStateProvider.LoginAsync("blazorschool-paid", "blazorschool")'>Login as Paid User</button>

@@ -1,0 +1,12 @@
+﻿@page "/for-users-in-policy-ui-elements"
+@using Microsoft.AspNetCore.Components.Authorization
+
+<h3>ForUsersInPolicyUIElements</h3>
+<AuthorizeView Policy="AdultOnly">
+    <Authorized>
+        <div>Content for users in adult policy.</div>
+    </Authorized>
+    <NotAuthorized>
+        <div>This content is for adult.</div>
+    </NotAuthorized>
+</AuthorizeView>

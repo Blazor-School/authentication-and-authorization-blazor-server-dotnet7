@@ -1,0 +1,14 @@
+﻿@page "/for-logged-in-users"
+@using Microsoft.AspNetCore.Components.Authorization
+
+<AuthorizeView>
+    <NotAuthorized>
+        <div>Not authorized users will see this.</div>
+    </NotAuthorized>
+    <Authorizing>
+        <div>The website will display this when trying to authorize the user.</div>
+    </Authorizing>
+    <Authorized>
+        <div>Authorized users will see this.</div>
+    </Authorized>
+</AuthorizeView>
